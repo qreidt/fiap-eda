@@ -21,11 +21,6 @@ st.markdown("""
     ao Consumidor) e a outra base possui ps valores de PMVG (Preço Máximo de Venda ao Governo).
     
     O primeiro passo para realizar o tratamento destes dados é unir ambas estas bases para facilitar qualquer análise.
-    
-    O segundo passo é realizar o filtro de impurezas nestas bases. As principais ações de filtragem escolhidas foram:
-    remover linhas que não estavam 100% preenchidas e então remover linhas duplicadas que significaram quase 1/5
-    da base.
-    
 """)
 
 # %%
@@ -105,6 +100,12 @@ col1.metric("Antes da Limpeza", thousands(df_count_1))
 col2.metric("Após Limpeza de Nulos", thousands(df_count_2), delta=thousands(df_count_2 - df_count_1))
 col3.metric("Após Limpeza de Duplicatas", thousands(df_count_3), delta=thousands(df_count_3 - df_count_2))
 
+st.markdown("""
+    O segundo passo é realizar o filtro de impurezas nestas bases. As principais ações de filtragem escolhidas foram:
+    remover linhas que não estavam 100% preenchidas e então remover linhas duplicadas que significaram quase 1/5
+    da base.
+""")
+
 st.markdown("---------------------------")
 
 st.markdown("##### Resumo:")
@@ -168,6 +169,11 @@ col1.metric("PF | Preço de Fábrica", currency(pf_mean))
 col2.metric("PMC | Preço ao Consumidor", currency(pmc_mean), delta=f'{round(((pmc_mean - pf_mean) / pf_mean) * 100):n} %')
 col3.metric("PMVG | Preço ao Governo", currency(pmvg_mean), delta=f'{round(((pmvg_mean - pf_mean) / pf_mean) * 100):n} %')
 
+st.markdown("""
+    Terceiro passo: Encontrar as medianas de cada valor (PF, PMC e PMVG) e gerar insigts com hipóteses de causas e
+    consequências dos dados.
+""")
+
 # %%
 
 st.markdown("------------------")
@@ -218,6 +224,10 @@ st.markdown("""
 
 st.markdown("------------------")
 st.markdown("### Laboratório com Maior Número de Medicamentos")
+
+st.markdown("""
+    Quarto passo: Insights sobre a empresa com maior número de medicamentos encontrada.
+""")
 
 # Laboratório com maior número de medicamentos
 count_products_by_lab = df.groupby("LABORATÓRIO", group_keys=False).size()
