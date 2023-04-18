@@ -273,4 +273,11 @@ col2.metric("PMC Mediano", currency(lab_pmc_mean))
 lab_pmvg_mean = lab_products['PMVG MED'].mean()
 col3.metric("PMVG Mediano", currency(lab_pmvg_mean))
 
+st.markdown("""
+    Aqui, podemos ver que o laboratório EMS S/A possuí uma grande quantidade de produtos, e diferentes variantes do
+    mesmo produto. Isso permite que o laboratório possa comercializar diferentes produtos com diferentes preços para
+    obter maior lucro. Com o PF mediano sendo de R$128, vemos que o preço comercializado com o governo ou diretamente
+    com o consumidor não difere da mediana geral de todos os laboratórios. A diferença do PMC da EMS S/A se mantém em
+    39% e o PMGV também se mantém com uma queda de -22%
+""")
 
